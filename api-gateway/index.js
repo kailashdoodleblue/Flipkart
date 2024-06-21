@@ -4,11 +4,10 @@ const app = express();
 const config=require('./config')
 
 const routes = {
-    '/user':config.USER,
     '/product': config.PRODUCT,
-    '/order': config.ORDER
+    '/order': config.ORDER,
+    '/user':config.USER
 }
-
 
 for(const route in routes){
     const target = routes[route];

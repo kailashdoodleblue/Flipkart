@@ -6,10 +6,16 @@ const createOrder = async (req, res) => {
   try {
     const { productId, userName, quantity } = req.body;
     const order = await orderService.createOrder(productId, userName, quantity);
+    const data =await axios.get(`http://localhost:3000/user/${userName}`) 
+     console.log(data)
+      const values=data.data
+      const email=values.email
+    console.log(email)
     await axios.put(`http://localhost:3001/product/reducestock/${productId}`, { userquantity: quantity });
+  
     var mailOptions = {
       from: 'branson59@ethereal.email',
-      to: 'kailash@mailinator.com',
+      to: email,
       subject: 'Order summary',
       text: `Dear ${userName},
              Your order on product : ${productId} and quantity :${quantity} ,

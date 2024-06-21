@@ -8,7 +8,8 @@
     "server1": "nodemon ../order-service/index.js",
     "server2": "nodemon ../product-service/index.js",
     "server3": "nodemon index.js",
-    "start": "concurrently \"npm run server1\" \"npm run server2\" \"npm run server3\""
+    "server4": "nodemon ../user-service/index.js",
+    "start": "concurrently \"npm run server1\" \"npm run server2\" \"npm run server3\" \"npm run server4\""
   },
   "author": "",
   "license": "ISC",
